@@ -27,16 +27,39 @@ export default function Users({ favorites, onToggleFavorite }) {
   }, [filteredUsers.length]);
 
   return (
-    <div className="max-w-6xl mx-auto p-6 space-y-6">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Team Members</h1>
-        <input
-          type="text"
-          placeholder="Search members by name..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full md:w-72 px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+    <div className="max-w-6xl mx-auto p-6 space-y-8">
+      {/* Centered Header & Enhanced Search Bar Section */}
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <h1 className="text-3xl font-extrabold text-stone-900 dark:text-slate-100">
+          Team Members
+        </h1>
+        
+        {/* Prominent Search Input Wrapper */}
+        <div className="relative w-full max-w-lg">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-amber-800 dark:text-blue-400">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
+          </div>
+          <input
+            type="text"
+            placeholder="Search team members by name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-11 pr-4 py-3 border-2 border-stone-300 dark:border-slate-700 rounded-2xl bg-white dark:bg-slate-900 text-stone-900 dark:text-slate-100 placeholder-stone-400 dark:placeholder-slate-500 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-800 dark:focus:ring-blue-500 focus:border-amber-800 dark:focus:border-blue-500 transition-all font-medium"
+          />
+        </div>
       </div>
 
       {isLoading ? (

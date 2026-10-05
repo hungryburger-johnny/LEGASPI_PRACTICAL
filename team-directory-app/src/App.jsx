@@ -11,7 +11,6 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [favorites, setFavorites] = useState([]);
 
-  // Toggle favorite status for a user ID[cite: 1]
   const toggleFavorite = (userId) => {
     setFavorites((prev) =>
       prev.includes(userId)
@@ -22,7 +21,7 @@ export default function App() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+      <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
         <Router>
           <Navbar
             favoritesCount={favorites.length}

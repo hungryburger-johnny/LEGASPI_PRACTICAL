@@ -2,17 +2,27 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar({ favoritesCount, darkMode, setDarkMode }) {
+  const handleThemeToggle = () => {
+    const nextMode = !darkMode;
+    setDarkMode(nextMode);
+    if (nextMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   const navLinkClass = ({ isActive }) =>
     `px-3 py-2 rounded-md font-medium text-sm transition-colors ${
       isActive
-        ? 'bg-blue-600 text-white dark:bg-blue-500'
-        : 'text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700'
+        ? 'bg-amber-700 text-white shadow-sm dark:bg-slate-900 dark:text-blue-200 dark:border dark:border-slate-700'
+        : 'text-amber-100 hover:bg-amber-800/60 hover:text-white dark:text-gray-300 dark:hover:bg-slate-800'
     }`;
 
   return (
-    <nav className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between">
+    <nav className="bg-amber-900 dark:bg-slate-950 shadow-md border-b border-amber-950 dark:border-slate-800 px-6 py-4 flex items-center justify-between transition-colors">
       <div className="flex items-center space-x-6">
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white">Team Directory</h1>
+        <h1 className="text-xl font-bold text-amber-50 dark:text-slate-100">Team Directory</h1>
         <div className="flex space-x-2">
           <NavLink to="/" className={navLinkClass}>Home</NavLink>
           <NavLink to="/users" className={navLinkClass}>Users</NavLink>
@@ -21,12 +31,12 @@ export default function Navbar({ favoritesCount, darkMode, setDarkMode }) {
       </div>
 
       <div className="flex items-center space-x-4">
-        <span className="text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full">
+        <span className="text-sm font-semibold bg-amber-100 text-amber-900 dark:bg-slate-900 dark:text-blue-300 dark:border dark:border-slate-800 px-3 py-1 rounded-full">
           Favorites: {favoritesCount}
         </span>
         <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 text-sm font-medium"
+          onClick={handleThemeToggle}
+          className="p-2 rounded-lg bg-amber-800 text-amber-50 dark:bg-slate-900 dark:text-slate-200 dark:border dark:border-slate-800 hover:bg-amber-700 dark:hover:bg-slate-800 text-sm font-medium transition-colors"
         >
           {darkMode ? '☀️ Light' : '🌙 Dark'}
         </button>
