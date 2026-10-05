@@ -1,16 +1,49 @@
-# React + Vite
+# Team Directory App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React web application built with Vite, React Router, and Tailwind CSS v4. The application allows users to browse team profiles, search colleagues in real-time, manage a list of favorites, and switch between light and dark visual themes.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Dynamic Navigation & Routing:** SPA routing with React Router (`/`, `/users`, `/users/:id`, `/about`, and `*` fallback for 404)[cite: 1].
+- **Real-Time Search:** Instant client-side filtering by team member name on the Users page[cite: 1].
+- **Interactive Favorites System:** Toggle team members as favorites with live badge count updating in the navigation bar[cite: 1].
+- **Custom Aesthetic Themes:** Warm earthy palette (terracotta/amber accents) for Light Mode, seamlessly transitioning to a deep navy blue palette for Dark Mode.
+- **Simulated Async Data Fetching:** Built-in loader state simulating asynchronous user fetching on page load[cite: 1].
+- **Dynamic Document Titles:** `useEffect` integration updating document titles based on active route and search filter counts[cite: 1].
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Framework:** React 18 + Vite
+- **Styling:** Tailwind CSS v4
+- **Routing:** React Router v6
+- **Version Control:** Git & GitHub
+
+---
+
+## Project Structure
+
+```text
+team-directory-app/
+├── src/
+│   ├── components/
+│   │   ├── errorMessage.jsx
+│   │   ├── loader.jsx
+│   │   ├── navbar.jsx
+│   │   └── userCard.jsx
+│   ├── data/
+│   │   └── users.js
+│   ├── pages/
+│   │   ├── about.jsx
+│   │   ├── home.jsx
+│   │   ├── notFound.jsx
+│   │   ├── userDetails.jsx
+│   │   └── users.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── index.html
+└── README.md
